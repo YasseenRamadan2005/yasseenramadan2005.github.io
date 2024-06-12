@@ -1,29 +1,15 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
-date:   2024-06-09 00:57:27 -0400
-categories: jekyll update
+title:  "Welcome to My Personal Website!"
+date:   2024-06-12 00:57:27 -0400
+categories: intro
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
-Jekyll requires blog post files to be named according to the following format:
+Welcome to my personal website! I'm a sophomore studying computer engineering at the Rochester Institute of Technology. This blog is dedicated to documenting the projects I'm working on as well as general progamming information that I find interesting. 
 
-`YEAR-MONTH-DAY-title.MARKUP`
+###Contact
 
-Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `MARKUP` is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.
-
-Jekyll also offers powerful support for code snippets:
-
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
-
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
-
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+- School Email: ywr5999@rit.edu
+- Personal Email: yasseenramadan6@gmail.com
+- Linkedin: [linkedin.com/in/yasseen-ramadan-4590a1286](www.linkedin.com/in/yasseen-ramadan-4590a1286)
+- Github: [github.com/YasseenRamadan2005](https://github.com/YasseenRamadan2005)
