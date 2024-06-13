@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Documentation for my HacK Assembler - nand2tetris Project 6"
+title:  "Documentation for my Hack Assembler - nand2tetris Project 6"
 date:   2024-06-12 00:57:27 -0400
 categories: nand2tetris
 ---
