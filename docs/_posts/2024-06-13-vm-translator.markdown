@@ -458,8 +458,8 @@ Since there's a custom return address, I create a global variable to track where
 
 # Summary:
 
-BasicTest - 76 instructions
-PointerTest - 46 instructions
-StaticTest - 24 instructions
-SimpleAdd - 5 instructions
-StackTest - 238 instructions (yeah yeah I know optimizations with constants would make it run better).
+- BasicTest - 76 instructions
+- PointerTest - 46 instructions
+- StaticTest - 24 instructions
+- SimpleAdd - 5 instructions
+- StackTest - 238 instructions (yeah yeah I know optimizations with constants would make it run better).
