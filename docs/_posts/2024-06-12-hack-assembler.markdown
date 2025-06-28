@@ -53,7 +53,7 @@ A_Instructions = {
 For non-trivial A instructions, there are labels (for branch programming) and variables. Labels are delcared in the form (LABEL_NAME), which is not translated as an instruction itself, but instead the next line following (LABEL_NAME) is the start of the label. So a key-value pair of the label's name with the line number is added to the A-Instructions table. (When jumping, the Program Counter is set to the the A register). Since label declarations do not have to be declared in advance of the label's use, a first passs of collecting the labels is needed before anything else.
 
 
-For variables, they start being allocated at RAM[16] and do not have to be declared. The code for this is simple, for instructin @thing, if thing is not in the table already, add it to the table with the value 16 + the amount of variables and increment the amount of variables.
+For variables, they start being allocated at RAM[16] and do not have to be declared. The code for this is simple, for instruction @thing, if thing is not in the table already, add it to the table with the value 16 + the amount of variables and increment the amount of variables.
 
 
 ## Code
