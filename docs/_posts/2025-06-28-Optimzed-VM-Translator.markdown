@@ -79,7 +79,7 @@ M=M+1
 While this is a somewhat contrived example, it speak the core idea about writing optimal code. Our assembly is meant to be a reflection of our high level code. When writing high level code, we don't think in terms of pushes and pops; we think about expressions and assignments. So when parsing our VM code, we should identify groups that are either expressions, where the net stack count is +1, or assignments, where the net stack count is neutral. While I certainly have my complaints with HACK, there is one benefit makes this goal possible. In HACK, there is no "load" or "store" instruction really. A single instruction can read, do a calculation and write to memory all by itself. Take the instruction "M=D+M" as an example. This code read from RAM, adds the value to D register, and writes to RAM, all without even acknowledging the stack's existance! Furthermore, RAM addresses 13, 14 and 15 are free to be used as general pupose registers as well. 
 
 
-Since I used Java for my implemention, I thought in terms of interfaces and abstract classes. There exists an interface called "VMInstruction" which has just one method, the decode() method, whose job is the generate the proper assembly code for that instruction. There is also a "PushGroup" abstract class, which not only implements VMInstruction but also has another method, the setD() method, whose job is to set the D register to its value. A PushGroup represents code that is net stack +1, meaning it's only single value. There are 5 definintions of a Push Group, one trivial and 4 recursive.
+Since I used Java for my implemention, I thought in terms of interfaces and abstract classes. There exists an interface called "VMInstruction" which has just one method, the decode() method, whose job is the generate the proper assembly code for that instruction. There is also a "PushGroup" abstract class, which not only implements VMInstruction but also has another method, the setD() method, whose job is to set the D register to its value. A PushGroup represents code that is net stack +1, meaning it represents only a single value. There are 5 definintions of a Push Group, one trivial and 4 recursive. In essense, we are building a tree where the Push and Pop instructions (as well as other cores types of VM instructions) are the leaves, and the PushGroups and VMInstructions are the branches.
 
 Our VM code is made up of Push and Pop Instructions, each of which contains an Address object. An Address can be trivial or non trivial, and also has a method which sets the M register to the address value, allowing us to use the D register as an accumulator. 
 
@@ -150,7 +150,7 @@ pop pointer 1
 push that 0
 {% endhighlight %}
 
-The setD is not dificult to implement. Our goal is to set the A regitser to the value of the base, then do D=M. If the base is not a simple push constant x, then we use PushGroup's setD method, but replace the first character of the last line with an A instead of a D. If it is a simple constant, then we just do @ (the constant value).
+The setD is not dificult to implement. Our goal is to set the A register to the value of the base, then do D=M. If the base is not a simple push constant x, then we use PushGroup's setD method, but replace the first character of the last line with an A instead of a D. If it is a simple constant, then we just do @ (the constant value).
 
 
 # How I deal with comparision 
@@ -342,7 +342,7 @@ A=M
 
 # Consecutive Pushes
 
-When declaring a function, we push the constant 0 __k__ times for __k__ local variables, which not only initilizes our local variables but also allocates room for the local variables on the stack. Since cosntant 0 is extremely trivial, instead of running the ecode method on each push instruction, we could just increment the stack pointer by k, then jump to the top and repeat "A=A-1, M=0" k times. In fact, there is whole rabbit of optimizations we can do with these pushes
+When declaring a function, we push the constant 0 __k__ times for __k__ local variables, which not only initializes our local variables but also allocates room for the local variables on the stack. Since cosntant 0 is extremely trivial, instead of running the decode method on each push instruction, we could just increment the stack pointer by k, then jump to the top and repeat "A=A-1, M=0" k times. In fact, there is whole rabbit of optimizations we can do with these pushes
 
 For example, take this code in Ouptut.initMap:
 
@@ -412,11 +412,6 @@ This is stack netural, and it's decode it failry simple:
 In the end, with my OS plus my Main.jack:
 
 {% highlight mkd %}
-// This file is part of www.nand2tetris.org
-// and the book "The Elements of Computing Systems"
-// by Nisan and Schocken, MIT Press.
-// File name: projects/12/ScreenTest/Main.jack
-
 /** Test program for the OS Screen class. */
 class Main {
     function void main() {
